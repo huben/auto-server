@@ -1,0 +1,56 @@
+live com.ss.android.ugc.aweme:id/b3f
+
+关注 com.ss.android.ugc.aweme:id/fod
+
+推荐 com.ss.android.ugc.aweme:id/fpq
+
+搜索 android.widget.Button com.ss.android.ugc.aweme:id/buv 
+    com.ss.android.ugc.aweme:id/b37 父元素 click
+
+    输入框 com.ss.android.ugc.aweme:id/ai2
+
+    返回列表 com.ss.android.ugc.aweme:id/cyf
+    搜索列表名称 com.ss.android.ugc.aweme:id/fzm
+
+      头像 com.ss.android.ugc.aweme:id/btx
+
+点赞 com.ss.android.ugc.aweme:id/ake
+
+点赞状态
+  content-desc	未选中，喜欢133.0w，按钮
+  resource-id	com.ss.android.ugc.aweme:id/akc
+点赞数量 com.ss.android.ugc.aweme:id/akf
+
+评论 com.ss.android.ugc.aweme:id/a6z
+评论数量 com.ss.android.ugc.aweme:id/a71
+
+分享 com.ss.android.ugc.aweme:id/dbv
+
+
+个人信息保护指引
+android:id/content
+个人信息保护指引 com.ss.android.ugc.aweme:id/title 
+ 好的 com.ss.android.ugc.aweme:id/a_s
+
+
+ 上滑查看更多视频
+
+ 登录
+ wait 加载
+ 图形验证码
+
+通讯录
+  跳过 com.ss.android.ugc.aweme:id/ejn
+
+ 直播 
+ 说点什么 com.ss.android.ugc.aweme:id/aqx
+ 发送 com.ss.android.ugc.aweme:id/ed6
+
+
+
+个人主页 
+  头像 com.ss.android.ugc.aweme:id/bef 点击头像进入直播或者大头像
+  取消关注 com.ss.android.ugc.aweme:id/b53 
+  获赞 com.ss.android.ugc.aweme:id/ajh
+  关注 com.ss.android.ugc.aweme:id/b5p
+  粉丝 com.ss.android.ugc.aweme:id/b5k

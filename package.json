@@ -1,0 +1,16 @@
+{
+  "name": "auto",
+  "version": "1.0.0",
+  "main": "Logger.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "koa": "^2.11.0",
+    "koa-router": "^8.0.8",
+    "socket.io": "^2.3.0"
+  }
+}
