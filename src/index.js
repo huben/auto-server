@@ -61,6 +61,9 @@ io.on('connection', (socket) => {
       return item !== socket.id
     })
     CLIENT_ID_PHONE = CLIENT_ID_PHONE.filter(item => {
+      if (item.id === socket.id) {
+        io.emit(HANDLER_ADMIN, { cmd: -1, msg: item.phone + "下线" });
+      }
       return item.id !== socket.id
     })
     console.log('user disconnected' + ":" + socket.id + ":" + reason);

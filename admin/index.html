@@ -159,6 +159,9 @@ var vm = new Vue({
     socket.on(HANDLER_ADMIN, (data) => {
       this.records.push(data)
     });
+    socket.on('disconnect', (reason) => {
+      this.records.push(reason)
+    })
     let msg = { cmd: 0, text: '管理后台上线' }
     socket.emit(HANDLER_ADMIN, msg)
   },
