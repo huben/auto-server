@@ -208,7 +208,13 @@ var vm = new Vue({
   },
   filters: {
     cmdFilter(val) {
-
+      let txt = ''
+      cmds.forEach(item => {
+        if (item.cmd === parseInt(val)) {
+          txt = iten.text
+        }
+      })
+      return txt
     }
   }
 })
