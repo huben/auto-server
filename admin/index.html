@@ -210,8 +210,8 @@ var vm = new Vue({
     cmdFilter(val) {
       let txt = ''
       cmds.forEach(item => {
-        if (item.cmd === parseInt(val)) {
-          txt = iten.text
+        if (item.value === parseInt(val)) {
+          txt = iten.name
         }
       })
       return txt
