@@ -1,6 +1,7 @@
 
 module.exports = {
-  CMD_ONLINE: 0,
+  CMD_ONLINE: -2,
+  CMD_OFFLINE: -1,
   CMD_OPEN: 1,
   CMD_SWIPE_UP: 2,
   CMD_SWIPE_RIGHT: 3,

@@ -96,10 +96,10 @@ let cmds = [
       },
       {
         name: '上线',
-        value: 0,
+        value: -2,
       },
       {
-        name: '打开',
+        name: '打开APP',
         value: 1,
       },
       {
@@ -167,10 +167,11 @@ var vm = new Vue({
   },
   mounted() {
     socket.on(HANDLER_ADMIN, (data) => {
+      console.log(data)
       this.records.push(data)
     });
     socket.on('disconnect', (reason) => {
-      this.records.push(reason)
+      this.records.push({ cmd: -2, text: reason })
     })
     let msg = { cmd: 0, text: '管理后台上线' }
     socket.emit(HANDLER_ADMIN, msg)
@@ -210,6 +211,7 @@ var vm = new Vue({
     cmdFilter(val) {
       let txt = ''
       cmds.forEach(item => {
+        console.log(item, val)
         if (item.value === parseInt(val)) {
           txt = item.name
         }
