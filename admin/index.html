@@ -53,7 +53,7 @@
   <div id="app">
     <h3>通讯记录</h3>
     <ul class="r-layout">
-      <li class="r-item" v-for="r in records">{{ r }}</li>
+      <li class="r-item" v-for="r in records">{{ r.cmd | cmdFilter }} - {{ r }}</li>
     </ul>
     <div class='send-from'>
       <input class="input" placeholder="发送的设备手机号，英文逗号分割" v-model="device"/>
@@ -89,10 +89,15 @@ var socket = io.connect(url);
 
 </script>
 <script>
-var vm = new Vue({
-  el: "#app",
-  data: {
-    cmds: [
+let cmds = [
+      {
+        name: '下线',
+        value: -1
+      },
+      {
+        name: '上线',
+        value: 0,
+      },
       {
         name: '打开',
         value: 1,
@@ -149,7 +154,12 @@ var vm = new Vue({
         name: '点击个人中心头像',
         value: 14,
       },
-    ],
+    ]
+    
+var vm = new Vue({
+  el: "#app",
+  data: {
+    cmds: cmds,
     device: '',
     cmdType: 0,
     cmdText: '',
@@ -196,6 +206,11 @@ var vm = new Vue({
       this.records.push(msg)
     }
   },
+  filters: {
+    cmdFilter(val) {
+
+    }
+  }
 })
 </script>
 
