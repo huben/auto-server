@@ -81,7 +81,7 @@ function getQueryVariable(variable) {
 let HANDLER_ADMIN = 'HANDLER_ADMIN'
 
 url = 'http://192.168.1.80:3000'
-if (getQueryVariable(env) === 'prod') {
+if (getQueryVariable('env') === 'prod') {
   url = 'http://129.28.192.125:3000'
 }
 
