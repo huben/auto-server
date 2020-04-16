@@ -23,9 +23,9 @@
   }
   .send-from {
     position: fixed;
-    width: 500px;
+    left: 15px;
     right: 15px;
-    top: 15px;
+    bottom: 15px;
     display: flex;
     border: solid 1px #f5f5f5;
     height: 50px;
@@ -56,6 +56,7 @@
       <li class="r-item" v-for="r in records">{{ r }}</li>
     </ul>
     <div class='send-from'>
+      <input class="input" placeholder="发送的设备手机号，英文逗号分割" v-model="device"/>
       <select class="select" v-model="cmdType">
         <option v-for="item in cmds" :value="item.value">{{ item.name }}</option>
       </select>
@@ -133,6 +134,7 @@ var vm = new Vue({
         value: 14,
       },
     ],
+    device: '',
     cmdType: 0,
     cmdText: '',
     records: [],
@@ -141,10 +143,27 @@ var vm = new Vue({
     socket.on(HANDLER_ADMIN, (data) => {
       this.records.push(data)
     });
+    let msg = { cmd: 0, text: '管理后台上线' }
+    socket.emit(HANDLER_ADMIN, msg)
   },
   methods: {
     tapSend() {
-      console.log(this.cmdType, this.cmdText)
+      console.log(this.device, this.cmdType, this.cmdText)
+      if (!this.device) {
+        alert("请输入设备手机号")
+        return
+      }
+      let devArray = this.device.split(',')
+      let phoneError = false
+      devArray.forEach(phone => {
+        if (phone.length != 11) {
+          phoneError = true
+        }
+      });
+      if (phoneError) {
+        alert("设备手机号错误")
+        return
+      }
       if (this.cmdType == 0) {
         alert("请选择指令类型")
         return
@@ -153,7 +172,7 @@ var vm = new Vue({
         alert("请输入指令内容")
         return
       }
-      let msg = { cmd: this.cmdType, text: this.cmdText }
+      let msg = { cmd: this.cmdType, text: this.cmdText, phones: devArray }
       socket.emit(HANDLER_ADMIN, msg);
       this.records.push(msg)
     }
