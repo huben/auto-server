@@ -17,6 +17,7 @@
 <style>
   .r-layout {
     padding: 10px;
+    margin-bottom: 100px;
   }
   .r-item {
     border-top: solid 1px #f5f5f5
@@ -168,7 +169,7 @@ var vm = new Vue({
   mounted() {
     socket.on(HANDLER_ADMIN, (data) => {
       console.log(data)
-      this.records.push(data)
+      this.records.push(JSON.parse(data))
     });
     socket.on('disconnect', (reason) => {
       this.records.push({ cmd: -2, text: reason })
