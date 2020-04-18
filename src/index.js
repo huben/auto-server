@@ -29,12 +29,13 @@ io.on('connection', (socket) => {
       console.log("管理后台上线" + socket.id)
       SOCKET_IDS.push(socket.id)
     } else {
-      msg.phones.forEach(phone => {
-        let idPhone = CLIENT_ID_PHONE.find(id_phone => {
-          return id_phone.phone === phone
-        })
-        io.sockets.sockets[idPhone.id].emit(HANDLER_CLIENT, msg)
-      });
+      if (msg.phones)
+        msg.phones.forEach(phone => {
+          let idPhone = CLIENT_ID_PHONE.find(id_phone => {
+            return id_phone.phone === phone
+          })
+          io.sockets.sockets[idPhone.id].emit(HANDLER_CLIENT, msg)
+        });
       // io.emit(HANDLER_CLIENT, msg) // all
     }
   });
